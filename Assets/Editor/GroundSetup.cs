@@ -5,26 +5,11 @@ using UnityEditor.SceneManagement;
 using System.IO;
 using System.Collections.Generic;
 
-[InitializeOnLoad]
 public static class GroundSetup
 {
     private const string TerrainTexturePath = "Assets/Sprites/TileMap/tilemap_packed.png";
     private const string TerrainTilesFolder = "Assets/Tiles/Terrain";
     private const string SueloPalettePath = "Assets/Sprites/TileMap/Suelo.prefab";
-
-    static GroundSetup()
-    {
-        EditorApplication.delayCall += RunOnce;
-    }
-
-    private static void RunOnce()
-    {
-        if (!SessionState.GetBool("GroundSetup_Executed_v1", false))
-        {
-            SessionState.SetBool("GroundSetup_Executed_v1", true);
-            Execute();
-        }
-    }
 
     [MenuItem("Tools/Construir Suelo y Posicionar Jugador")]
     public static void Execute()

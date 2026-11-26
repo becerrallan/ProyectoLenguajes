@@ -5,27 +5,12 @@ using UnityEditor.SceneManagement;
 using System.IO;
 using System.Collections.Generic;
 
-[InitializeOnLoad]
 public static class BackgroundPaletteSetup
 {
     private const string BackgroundTexturePath = "Assets/Sprites/TileMap/tilemap-backgrounds.png";
     private const string TilesFolder = "Assets/Tiles/Background";
     private const string PalettePrefabPath = "Assets/Sprites/TileMap/Fondo.prefab";
     private const string PalettePrefab2Path = "Assets/Sprites/TileMap/Fondo 2.0.prefab";
-
-    static BackgroundPaletteSetup()
-    {
-        EditorApplication.delayCall += RunOnce;
-    }
-
-    private static void RunOnce()
-    {
-        if (!SessionState.GetBool("BackgroundPaletteSetup_CleanRun_Done_v2", false))
-        {
-            SessionState.SetBool("BackgroundPaletteSetup_CleanRun_Done_v2", true);
-            ExecuteSetup();
-        }
-    }
 
     [MenuItem("Tools/Configurar Fondo (Tiles, Paleta y Escena)")]
     public static void ExecuteSetup()
